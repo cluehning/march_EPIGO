@@ -248,9 +248,11 @@ This installs the official UCSC tool used throughout genomics workflows.
 
 Convert the file
 
+```
   bigWigToBedGraph \
     E003-H3K27ac.pval.signal.bigwig \
     E003-H3K27ac.pval.signal.bedGraph
+```
 
 This produces a plain‑text bedGraph file.
 ⚠️ Note:
@@ -260,6 +262,7 @@ This produces a plain‑text bedGraph file.
 ### 4. Where to place the data in EPIGO
 Create a local data/ directory at the project root:
 
+```
   EPIGO/
   ├─ data/
   │  └─ roadmap/
@@ -267,6 +270,7 @@ Create a local data/ directory at the project root:
   ├─ neid/
   ├─ .vscode/
   └─ README.md
+```
 
 ---
 
