@@ -195,17 +195,80 @@ If something breaks, it should break **clearly and locally**.
 
 ---
 
-### 6. TL;DR
+## Data: downloading and preparing epigenetic tracks
 
-- `neid/` is a **Python package**
-- Never run files directly
-- Always run modules
-- In VS Code:
-  - open **EPIGO/**
-  - press **F5**
-  - choose a launch configuration
+EPIGO does **not** include raw epigenetic data in the repository because these files are too large for GitHub.
 
-EPIGO studies epigenetic tracks as **composable LEGO structures**.
+Instead, tracks are downloaded directly from the **NIH Roadmap Epigenomics Project** and prepared locally.
+
+---
+
+### 1. Where the data comes from
+
+EPIGO uses signal tracks from the Roadmap Epigenomics Project, hosted by Washington University in St. Louis.
+
+The tracks used here are:
+- **MACS2 signal tracks**
+- **p‑value signal**
+- **bigWig format**
+
+These are available at:
+```
+https://egg2.wustl.edu/roadmap/data/byFileType/signal/consolidated/macs2signal/pval/
+```
+
+Each file corresponds to:
+- one epigenome (e.g. E003, E050, …)
+- one histone mark (e.g. H3K27ac, H3K4me3)
+
+Example file name:
+E003-H3K27ac.pval.signal.bigwig
+
+### 2. Downloading a track
+
+You can download a track directly from the terminal.
+
+Example (replace the filename with the track you want):
+
+```bash
+wget https://egg2.wustl.edu/roadmap/data/byFileType/signal/consolidated/macs2signal/pval/E003-H3K27ac.pval.signal.bigwig
+```
+
+This will download a .bigwig file to your current directory.
+
+### 3. Converting bigWig → bedGraph
+EPIGO works with bedGraph files for downstream analysis.
+To convert bigWig to bedGraph, use the UCSC utility bigWigToBedGraph.
+
+Install the converter (recommended: conda)
+
+  conda install -c bioconda ucsc-bigwigtobedgraph
+
+This installs the official UCSC tool used throughout genomics workflows.
+
+Convert the file
+
+  bigWigToBedGraph \
+    E003-H3K27ac.pval.signal.bigwig \
+    E003-H3K27ac.pval.signal.bedGraph
+
+This produces a plain‑text bedGraph file.
+⚠️ Note:
+- Conversion can take time
+- Output files can be large
+
+### 4. Where to place the data in EPIGO
+Create a local data/ directory at the project root:
+
+  EPIGO/
+  ├─ data/
+  │  └─ roadmap/
+  │     └─ E003-H3K27ac.pval.signal.bedGraph
+  ├─ neid/
+  ├─ .vscode/
+  └─ README.md
+
+---
 
 ## 9. License
 
