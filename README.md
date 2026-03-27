@@ -177,6 +177,7 @@ Tracks are treated as objects rather than raw arrays:
 
 This keeps the math modular and explicit.
 
+#### For further insights please read EPIGO.pdf
 ---
 
 
