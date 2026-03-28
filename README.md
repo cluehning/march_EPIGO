@@ -65,9 +65,6 @@ EPIGO uses **relative imports** (for example `from .analysis import ...`), which
 
 If you run a file directly, Python forgets the package context.
 
-❌ Do **not** do this:
-- `python neid/viz_tracks.py`
-
 ✅ Correct rule:
 - Always run EPIGO **modules**, never individual files
 
@@ -124,8 +121,6 @@ This file focuses on:
 - visualizing entropy and spectra
 - consistent visual style across analyses
 
-No heavy computation should live here.
-
 ---
 
 ### `viz_tracks.py`
@@ -178,11 +173,9 @@ Tracks are treated as objects rather than raw arrays:
 This keeps the math modular and explicit.
 
 #### For further insights please read EPIGO.pdf
----
-
-
 
 ---
+
 ### 5. Design philosophy
 
 EPIGO is intentionally:
