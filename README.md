@@ -321,6 +321,48 @@ Create a local data/ directory at the project root:
 
 ---
 
+## 0. If you have no coding tools installed (no VS Code, no IDE)
+
+You can run EPIGO using **only your terminal**.  
+You do NOT need Visual Studio Code, PyCharm, or any code editor.
+
+A complete beginner can follow these steps:
+
+---
+
+### **Step A — Download the EPIGO project**
+
+1. Go to the GitHub page of this repository.
+2. Click the green **Code** button.
+3. Select **Download ZIP**.
+4. Unzip the file.
+5. You now have a folder called `EPIGO/` on your computer.
+
+You will run everything from inside this folder.
+
+---
+
+### **Step B — Install Conda (required)**
+
+Conda is the only tool you need to install manually.
+
+Download Miniconda here:  
+https://docs.conda.io/en/latest/miniconda.html
+
+Install it with the default settings.
+
+After installation, open a **new terminal** so conda becomes available.
+
+---
+
+##' **Step C — Install EPIGO dependencies**
+
+Navigate into the EPIGO folder:
+
+```bash
+cd path/to/EPIGO
+```
+
 ## 9. License
 
 MIT License
