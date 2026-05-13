@@ -189,7 +189,7 @@ If something breaks, it should break **clearly and locally**.
 
 ---
 
-## Data: downloading and preparing epigenetic tracks
+## 6. Data: downloading and preparing epigenetic tracks
 
 EPIGO does **not** include raw epigenetic data in the repository because these files are too large for GitHub.
 
@@ -197,7 +197,7 @@ Instead, tracks are downloaded directly from the **NIH Roadmap Epigenomics Proje
 
 ---
 
-### 1. Where the data comes from
+### Where the data comes from
 
 EPIGO uses signal tracks from the Roadmap Epigenomics Project, hosted by Washington University in St. Louis.
 
@@ -218,14 +218,14 @@ Each file corresponds to:
 Example file name:
 E003-H3K27ac.pval.signal.bigwig
 
-### 2. Downloading a track
+### 1. Downloading a track
 
 There are **two ways** to download Roadmap epigenomic tracks.  
 If you have **no coding experience**, use **Option A**.
 
 ---
 
-## **Option A — Download using your browser (easiest)**
+### **Option A — Download using your browser (easiest)**
 
 1. Open the Roadmap directory:  
    https://egg2.wustl.edu/roadmap/data/byFileType/signal/consolidated/macs2signal/pval
@@ -247,7 +247,7 @@ You are done — continue with the conversion step.
 
 ---
 
-## **Option B — Download from the terminal (advanced)**
+### **Option B — Download from the terminal (advanced)**
 
 If you prefer using the terminal:
 
@@ -262,7 +262,7 @@ Move it into your EPIGO data folder:
 mv E003-H3K27ac.pval.signal.bigwig EPIGO/data/
 ```
 
-### 3. Converting bigWig → bedGraph
+## 2. Converting bigWig → bedGraph
 
 EPIGO uses **bedGraph** files for all downstream analysis.  
 Roadmap and ENCODE tracks are usually provided as **.bigwig**, so you must convert them.
@@ -271,7 +271,7 @@ This step is simple and works on Windows, macOS, and Linux.
 
 ---
 
-## **Step 1 — Install the converter**
+### **Step 1 — Install the converter**
 
 The recommended method is using **conda** (works even if you have no coding experience):
 
@@ -321,7 +321,7 @@ Create a local data/ directory at the project root:
 
 ---
 
-## 0. If you have no coding tools installed (no VS Code, no IDE)
+## 7. If you have no coding tools installed (no VS Code, no IDE)
 
 You can run EPIGO using **only your terminal**.  
 You do NOT need Visual Studio Code, PyCharm, or any code editor.
@@ -355,13 +355,60 @@ After installation, open a **new terminal** so conda becomes available.
 
 ---
 
-##' **Step C — Install EPIGO dependencies**
+### **Step C — Install EPIGO dependencies**
 
 Navigate into the EPIGO folder:
 
 ```bash
 cd path/to/EPIGO
 ```
+
+Install all required Python packages:
+```
+conda install python=3.10
+pip install -r requirements.txt
+```
+This installs everything EPIGO needs - regarding downloadung the data please refer to 6. Data: downloading and preparing epigenetic tracks.
+
+### **Step D — Run EPIGO**
+Go to the EPIGO folder:
+```
+cd path/to/EPIGO
+```
+
+Run the project:
+```
+python app.py
+```
+
+or, depending on your system:
+```
+python3 app.py
+```
+EPIGO will start and load your data.
+
+### Do I need to install Python?
+
+Yes — EPIGO requires Python.  
+However, **you do NOT install Python separately**.
+
+When you install **Miniconda**, it automatically gives you:
+
+- Python  
+- a package manager  
+- an isolated environment  
+- everything needed to run EPIGO  
+
+This means beginners only need to install **one thing**: Miniconda.
+
+You do NOT need:
+- VS Code  
+- a code editor  
+- a code runner  
+- any programming tools
+
+Everything happens in the terminal.
+
 
 ## 9. License
 
