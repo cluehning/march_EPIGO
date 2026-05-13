@@ -225,7 +225,7 @@ If you have **no coding experience**, use **Option A**.
 
 ---
 
-### **Option A — Download using your browser (easiest)**
+**Option A — Download using your browser (easiest)**
 
 1. Open the Roadmap directory:  
    https://egg2.wustl.edu/roadmap/data/byFileType/signal/consolidated/macs2signal/pval
@@ -247,7 +247,7 @@ You are done — continue with the conversion step.
 
 ---
 
-### **Option B — Download from the terminal (advanced)**
+**Option B — Download from the terminal (advanced)**
 
 If you prefer using the terminal:
 
@@ -262,7 +262,7 @@ Move it into your EPIGO data folder:
 mv E003-H3K27ac.pval.signal.bigwig EPIGO/data/
 ```
 
-## 2. Converting bigWig → bedGraph
+### 2. Converting bigWig → bedGraph
 
 EPIGO uses **bedGraph** files for all downstream analysis.  
 Roadmap and ENCODE tracks are usually provided as **.bigwig**, so you must convert them.
@@ -271,7 +271,7 @@ This step is simple and works on Windows, macOS, and Linux.
 
 ---
 
-### **Step 1 — Install the converter**
+**Step 1 — Install the converter**
 
 The recommended method is using **conda** (works even if you have no coding experience):
 
@@ -306,7 +306,7 @@ This produces a plain‑text bedGraph file.
 - Conversion can take time
 - Output files can be large
 
-### 4. Where to place the data in EPIGO
+### Where to place the data in EPIGO
 Create a local data/ directory at the project root:
 
 ```
@@ -410,7 +410,7 @@ You do NOT need:
 Everything happens in the terminal.
 
 
-## 9. License
+## 8. License
 
 MIT License
 
