@@ -220,33 +220,88 @@ E003-H3K27ac.pval.signal.bigwig
 
 ### 2. Downloading a track
 
-You can download a track directly from the terminal.
+There are **two ways** to download Roadmap epigenomic tracks.  
+If you have **no coding experience**, use **Option A**.
 
-Example (replace the filename with the track you want):
+---
+
+## **Option A — Download using your browser (easiest)**
+
+1. Open the Roadmap directory:  
+   https://egg2.wustl.edu/roadmap/data/byFileType/signal/consolidated/macs2signal/pval
+
+2. Click on the file you want, for example:  
+   `E003-H3K27ac.pval.signal.bigwig`
+
+3. Your browser will download the file into your *Downloads* folder.
+
+4. Move the file into your EPIGO project:
+
+   - **Windows:**  
+     `Documents/MATLAB/EPIGO/data/`
+
+   - **macOS / Linux:**  
+     `~/Documents/MATLAB/EPIGO/data/`
+
+You are done — continue with the conversion step.
+
+---
+
+## **Option B — Download from the terminal (advanced)**
+
+If you prefer using the terminal:
 
 ```bash
 wget https://egg2.wustl.edu/roadmap/data/byFileType/signal/consolidated/macs2signal/pval/E003-H3K27ac.pval.signal.bigwig
 ```
 
-This will download a .bigwig file to your current directory.
+This downloads the .bigwig file into your current directory.
+
+Move it into your EPIGO data folder:
+```
+mv E003-H3K27ac.pval.signal.bigwig EPIGO/data/
+```
 
 ### 3. Converting bigWig → bedGraph
-EPIGO works with bedGraph files for downstream analysis.
-To convert bigWig to bedGraph, use the UCSC utility bigWigToBedGraph.
 
-Install the converter (recommended: conda)
+EPIGO uses **bedGraph** files for all downstream analysis.  
+Roadmap and ENCODE tracks are usually provided as **.bigwig**, so you must convert them.
 
-  conda install -c bioconda ucsc-bigwigtobedgraph
+This step is simple and works on Windows, macOS, and Linux.
 
-This installs the official UCSC tool used throughout genomics workflows.
+---
+
+## **Step 1 — Install the converter**
+
+The recommended method is using **conda** (works even if you have no coding experience):
+
+```bash
+conda install -c bioconda ucsc-bigwigtobedgraph
+```
+This installs the official UCSC bigWigToBedGraph tool used in genomics workflows.
+
+If you do not have conda, you can install Miniconda first:
+```
+https://docs.conda.io/en/latest/miniconda.html (docs.conda.io in Bing)
+```
 
 Convert the file
+Go into your EPIGO data folder:
+```
+cd EPIGO/data
+```
+Run the conversion command:
+```
+bigWigToBedGraph \
+  E003-H3K27ac.pval.signal.bigwig \
+  E003-H3K27ac.pval.signal.bedGraph
+```
 
+This creates a new file:
 ```
-  bigWigToBedGraph \
-    E003-H3K27ac.pval.signal.bigwig \
-    E003-H3K27ac.pval.signal.bedGraph
+E003-H3K27ac.pval.signal.bedGraph
 ```
+This is the file EPIGO will use.
 
 This produces a plain‑text bedGraph file.
 ⚠️ Note:
