@@ -281,9 +281,7 @@ conda install -c bioconda ucsc-bigwigtobedgraph
 This installs the official UCSC bigWigToBedGraph tool used in genomics workflows.
 
 If you do not have conda, you can install Miniconda first:
-```
 https://docs.conda.io/en/latest/miniconda.html (docs.conda.io in Bing)
-```
 
 Convert the file
 Go into your EPIGO data folder:
