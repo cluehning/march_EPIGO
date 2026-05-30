@@ -291,8 +291,8 @@ cd EPIGO/data
 Run the conversion command:
 ```
 bigWigToBedGraph \
-  E003-H3K27ac.pval.signal.bigwig \
-  E003-H3K27ac.pval.signal.bedGraph
+  E071_H3K27ac.pval.signal.bigwig \
+  E071_H3K27ac.pval.signal.bedGraph
 ```
 
 This creates a new file:
@@ -300,6 +300,12 @@ This creates a new file:
 E003-H3K27ac.pval.signal.bedGraph
 ```
 This is the file EPIGO will use.
+
+Run the following command to compress the data:
+```
+gzip E071_H3K27ac.pval.signal.bedGraph
+gzip E071_H3K27ac.pval.signal.bedGraph
+```
 
 This produces a plain‑text bedGraph file.
 ⚠️ Note:
@@ -313,7 +319,8 @@ Create a local data/ directory at the project root:
   EPIGO/
   ├─ data/
   │  └─ roadmap/
-  │     └─ E003-H3K27ac.pval.signal.bedGraph
+  │     └─ E071_H3K27ac.bedGraph.gz
+  │     └─ E071_H3K4me3.bedGraph.gz
   ├─ neid/
   ├─ .vscode/
   └─ README.md
@@ -378,12 +385,12 @@ cd path/to/EPIGO
 
 Run the project:
 ```
-python app.py
+python neid.viz_tracks
 ```
 
 or, depending on your system:
 ```
-python3 app.py
+python3 neid.viz_tracks
 ```
 EPIGO will start and load your data.
 
