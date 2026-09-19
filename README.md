@@ -326,7 +326,6 @@ Create a local data/ directory at the project root:
   └─ README.md
 ```
 
----
 
 ## 7. If you have no coding tools installed (no VS Code, no IDE)
 
